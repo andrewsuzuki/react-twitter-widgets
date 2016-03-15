@@ -23,7 +23,8 @@ ReactDOM.render((
     widgetId={'29838471883830183'}
     options={{
       username: 'TwitterDev',
-      height: '400'
+      height: '400',
+      lang: 'en'
     }}
     onLoad={() => console.log('Timeline is loaded!')}
   />
@@ -46,7 +47,9 @@ All widgets take an optional options object prop. To learn more about the availa
 
 `Tweet` requires a `tweetId` prop. Ex. `'511181794914627584'`
 
-All widgets accept an optional `onLoad` callback, which is called every time the widget is loaded/reloaded (both on inital load and updates).
+All widgets accept an optional `onLoad` callback, which is called every time the widget is loaded/reloaded (both on initial load and updates).
+
+Additional options such as localization and component dimensions can be found [on this page](https://dev.twitter.com/web/javascript/creating-widgets) under 'Options'.
 
 ## Contributing
 
