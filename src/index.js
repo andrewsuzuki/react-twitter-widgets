@@ -2,7 +2,7 @@ import { canUseDOM } from 'exenv'
 
 if (canUseDOM) {
   const $script = require('scriptjs') // eslint-disable-line global-require
-  $script('https//platform.twitter.com/widgets.js', 'twitter-widgets')
+  $script('https://platform.twitter.com/widgets.js', 'twitter-widgets')
 }
 
 export Follow from './components/Follow'
