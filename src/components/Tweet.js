@@ -9,11 +9,13 @@ export default class Tweet extends React.Component {
     tweetId: PropTypes.string.isRequired,
     options: PropTypes.object,
     onLoad: PropTypes.func,
+    onError: PropTypes.func,
   };
 
   static defaultProps = {
     options: {},
     onLoad: () => {},
+    onError: () => {},
   };
 
   shouldComponentUpdate(nextProps) {
@@ -22,14 +24,16 @@ export default class Tweet extends React.Component {
   }
 
   ready = (tw, element, done) => {
-    const { tweetId, options, onLoad } = this.props
+    const { tweetId, options, onLoad, onError } = this.props
 
     // Options must be cloned since Twitter Widgets modifies it directly
     tw.widgets.createTweet(tweetId, element, cloneDeep(options))
-    .then(() => {
+    .then((res) => {
       // Widget is loaded
       done()
-      onLoad()
+      
+      if (res) onLoad();
+      else onError();
     })
   }
 
