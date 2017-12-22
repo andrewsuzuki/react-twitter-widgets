@@ -9,6 +9,7 @@ export default class Timeline extends React.Component {
     dataSource: PropTypes.object.isRequired,
     options: PropTypes.object,
     onLoad: PropTypes.func,
+    template: PropTypes.object
   };
 
   static defaultProps = {
@@ -18,19 +19,31 @@ export default class Timeline extends React.Component {
 
   shouldComponentUpdate(nextProps) {
     const changed = (name) => !isEqual(this.props[name], nextProps[name])
-    return changed('dataSource') || changed('options')
+    return changed('dataSource') || changed('options') || changed('template')
   }
 
   ready = (tw, element, done) => {
-    const { dataSource, options, onLoad } = this.props
+    const { dataSource, options, onLoad, template } = this.props
 
-    // Options and dataSource must be cloned since Twitter Widgets modifies it directly
-    tw.widgets.createTimeline(cloneDeep(dataSource), element, cloneDeep(options))
-    .then(() => {
-      // Widget is loaded
-      done()
-      onLoad()
-    })
+    if (template.type === 'list') {
+      // Options and dataSource must be cloned since Twitter Widgets modifies it directly
+      tw.widgets.createTimeline(cloneDeep(dataSource), element, cloneDeep(options))
+        .then(() => {
+          // Widget is loaded
+          done()
+          onLoad()
+        })
+    } else {
+      // Options and dataSource must be cloned since Twitter Widgets modifies it directly
+      tw.widgets.createGridFromCollection(cloneDeep(dataSource.id), element, cloneDeep(options))
+        .then(() => {
+          // Widget is loaded
+          done()
+          onLoad()
+        })
+
+    }
+
   }
 
   render() {

@@ -26,6 +26,17 @@ export default {
       height: '600'
     },
   },
+  Timeline: {
+    dataSource: {
+      sourceType: 'collection',
+      id: '899767000012013568'
+    },
+    options: {
+      username: 'johnsanders',
+      height: '600'
+    },
+    template: { type: 'grid' }
+  },
   Tweet: {
     tweetId: '841418541026877441',
     options: {
