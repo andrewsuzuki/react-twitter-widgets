@@ -42,7 +42,8 @@ export default class AbstractWidget extends React.Component {
     const $script = require('scriptjs') // eslint-disable-line global-require
 
     $script.ready('twitter-widgets', () => {
-      if (!window.twttr) {
+      const tw = window.twttr;
+      if (!tw || !tw.widgets) {
         // If the script tag fails to load, scriptjs.ready() will still trigger.
         // Let's avoid the JS exceptions when that happens.
         console.error('Failure to load window.twttr, aborting load.') // eslint-disable-line no-console
@@ -53,7 +54,7 @@ export default class AbstractWidget extends React.Component {
       AbstractWidget.removeChildren(this.widgetWrapper)
 
       // Create widget
-      this.props.ready(window.twttr, this.widgetWrapper, this.done)
+      this.props.ready(tw, this.widgetWrapper, this.done)
     })
   }
 
