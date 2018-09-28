@@ -38,6 +38,8 @@
   },
   "homepage": "https://github.com/andrewsuzuki/react-twitter-widgets#readme",
   "devDependencies": {
+    "@storybook/react": "^3.4.11",
+    "@types/react": "^16.0.5",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.0.0",
@@ -50,14 +52,14 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "react": "^15.3.0",
-    "rimraf": "^2.5.2",
-    "@types/react": "^16.0.5"
+    "react": "^15.6.2",
+    "rimraf": "^2.5.2"
   },
   "dependencies": {
     "exenv": "^1.2.1",
     "lodash": "^4.17.4",
     "prop-types": "^15.3.0",
+    "react-dom": "^16.5.2",
     "scriptjs": "^2.5.8"
   },
   "peerDependencies": {
