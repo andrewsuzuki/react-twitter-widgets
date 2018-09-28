@@ -53,6 +53,10 @@ All widgets take an optional options object prop. To learn more about the availa
 
 All widgets accept an optional `onLoad` callback, which is called every time the widget is loaded/reloaded (both on inital load and updates).
 
+## Storybook
+
+[Storybook](https://storybook.js.org/) is a UI development environment for testing components. You can see example usage of all the available components locally using `npm run storybook` and visiting `localhost:9001`.
+
 ## Contributing
 
 1. Fork it!
