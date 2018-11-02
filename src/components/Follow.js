@@ -27,10 +27,10 @@ export default class Follow extends React.Component {
 
     // Options must be cloned since Twitter Widgets modifies it directly
     tw.widgets.createFollowButton(username, element, cloneDeep(options))
-    .then(() => {
+    .then((result) => {
       // Widget is loaded
       done()
-      onLoad()
+      onLoad(result)
     })
   }
 

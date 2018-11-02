@@ -26,10 +26,10 @@ export default class Hashtag extends React.Component {
 
     // Options must be cloned since Twitter Widgets modifies it directly
     tw.widgets.createHashtagButton(hashtag, element, cloneDeep(options))
-    .then(() => {
+    .then((result) => {
       // Widget is loaded
       done()
-      onLoad()
+      onLoad(result)
     })
   }
 

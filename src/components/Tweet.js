@@ -26,10 +26,10 @@ export default class Tweet extends React.Component {
 
     // Options must be cloned since Twitter Widgets modifies it directly
     tw.widgets.createTweet(tweetId, element, cloneDeep(options))
-    .then(() => {
+    .then((result) => {
       // Widget is loaded
       done()
-      onLoad()
+      onLoad(result)
     })
   }
 
