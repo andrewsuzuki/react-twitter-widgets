@@ -16,8 +16,12 @@ See below for usage.
 
 ## Installation
 
-```
+```sh
+// with npm
 npm install --save react-twitter-widgets
+
+// with yarn
+yarn add react-twitter-widgets
 ```
 
 ## Example
