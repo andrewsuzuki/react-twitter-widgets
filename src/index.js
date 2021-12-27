@@ -5,7 +5,7 @@ import {
   useShallowCompareMemoize,
   removeChildrenWithAttribute,
   twWidgetFactory,
-  cloneShallow
+  cloneShallow,
 } from "./utils";
 
 if (canUseDOM) {
@@ -35,7 +35,7 @@ function useTwitterWidget(factoryFunctionName, primaryArg, options, onLoad) {
   const deps = [
     factoryFunctionName,
     useShallowCompareMemoize(primaryArg),
-    useShallowCompareMemoize(options)
+    useShallowCompareMemoize(options),
   ];
 
   useEffect(() => {
@@ -113,62 +113,110 @@ function useTwitterWidget(factoryFunctionName, primaryArg, options, onLoad) {
   return { ref, error };
 }
 
-export const Follow = ({ username, options, onLoad, renderError }) => {
+export const Follow = ({
+  className,
+  username,
+  options,
+  onLoad,
+  renderError,
+}) => {
   const { ref, error } = useTwitterWidget(
     "createFollowButton",
     username,
     options,
     onLoad
   );
-  return <div ref={ref}>{error && renderError && renderError(error)}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {error && renderError && renderError(error)}
+    </div>
+  );
 };
 
-export const Hashtag = ({ hashtag, options, onLoad, renderError }) => {
+export const Hashtag = ({
+  className,
+  hashtag,
+  options,
+  onLoad,
+  renderError,
+}) => {
   const { ref, error } = useTwitterWidget(
     "createHashtagButton",
     hashtag,
     options,
     onLoad
   );
-  return <div ref={ref}>{error && renderError && renderError(error)}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {error && renderError && renderError(error)}
+    </div>
+  );
 };
 
-export const Mention = ({ username, options, onLoad, renderError }) => {
+export const Mention = ({
+  className,
+  username,
+  options,
+  onLoad,
+  renderError,
+}) => {
   const { ref, error } = useTwitterWidget(
     "createMentionButton",
     username,
     options,
     onLoad
   );
-  return <div ref={ref}>{error && renderError && renderError(error)}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {error && renderError && renderError(error)}
+    </div>
+  );
 };
 
-export const Share = ({ url, options, onLoad, renderError }) => {
+export const Share = ({ className, url, options, onLoad, renderError }) => {
   const { ref, error } = useTwitterWidget(
     "createShareButton",
     url,
     options,
     onLoad
   );
-  return <div ref={ref}>{error && renderError && renderError(error)}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {error && renderError && renderError(error)}
+    </div>
+  );
 };
 
-export const Timeline = ({ dataSource, options, onLoad, renderError }) => {
+export const Timeline = ({
+  className,
+  dataSource,
+  options,
+  onLoad,
+  renderError,
+}) => {
   const { ref, error } = useTwitterWidget(
     "createTimeline",
     dataSource,
     options,
     onLoad
   );
-  return <div ref={ref}>{error && renderError && renderError(error)}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {error && renderError && renderError(error)}
+    </div>
+  );
 };
 
-export const Tweet = ({ tweetId, options, onLoad, renderError }) => {
+export const Tweet = ({ className, tweetId, options, onLoad, renderError }) => {
   const { ref, error } = useTwitterWidget(
     "createTweet",
     tweetId,
     options,
     onLoad
   );
-  return <div ref={ref}>{error && renderError && renderError(error)}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {error && renderError && renderError(error)}
+    </div>
+  );
 };
